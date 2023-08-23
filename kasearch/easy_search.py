@@ -54,3 +54,20 @@ def EasySearch(query,
     targetdb.search(querydb[:1], keep_best_n=keep_best_n)
 
     return targetdb.get_meta(n_query=0, n_region=0, n_sequences='all', n_jobs=n_jobs)
+
+
+if __name__ == "__main__":
+    raw_queries = [
+        'VKLLEQSGAEVKKPGASVKVSCKASGYSFTSYGLHWVRQAPGQRLEWMGWISAGTGNTKYSQKFRGRVTFTRDTSATTAYMGLSSLRPEDTAVYYCARDPYGGGKSEFDYWGQGTLVTVSS',
+    ]
+
+    results = EasySearch(
+        raw_queries,
+        database_path='/home/chenxin/pycharmProjects/learn-kasearch/data/oasdb_tiny_20230111',
+        allowed_chain='Heavy',
+        allowed_species='Any',
+        regions=['cdr3'],
+        length_matched=[True],
+    )
+
+    print(results)
